@@ -1,0 +1,1870 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Frutos S.L. — Fine Nuts & Dried Fruits</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream:        #F5EFE6;
+    --cream-deep:   #EDE4D3;
+    --paper:        #FAF6EE;
+    --ink:          #1F1A14;
+    --ink-soft:     #3E3528;
+    --brown:        #6B4F2C;
+    --brown-warm:   #8B6B3E;
+    --olive:        #5C6B3A;
+    --olive-deep:   #3F4A28;
+    --moss:         #7A8855;
+    --rust:         #A6512C;
+    --line:         rgba(31, 26, 20, 0.15);
+    --line-strong:  rgba(31, 26, 20, 0.4);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.55;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  .display, h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  /* ============= HEADER ============= */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 246, 238, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .top-strip {
+    background: var(--olive-deep);
+    color: var(--cream);
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 8px 24px;
+    font-weight: 400;
+  }
+
+  .nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 22px 48px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .nav-left, .nav-right {
+    display: flex;
+    gap: 32px;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .nav-right { justify-content: flex-end; }
+
+  .nav a {
+    color: var(--ink);
+    text-decoration: none;
+    transition: color 0.3s;
+    cursor: pointer;
+    position: relative;
+  }
+  .nav a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px; left: 0;
+    width: 0; height: 1px;
+    background: var(--olive-deep);
+    transition: width 0.3s ease;
+  }
+  .nav a:hover::after, .nav a.active::after { width: 100%; }
+  .nav a.active { color: var(--olive-deep); }
+
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    letter-spacing: 0.42em;
+    text-align: center;
+    color: var(--ink);
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .logo small {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-size: 8.5px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-top: 3px;
+    font-weight: 400;
+  }
+
+  /* ============= VIEW SWITCHER ============= */
+  .view { display: none; animation: fadeIn 0.5s ease; }
+  .view.active { display: block; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ============= HERO ============= */
+  .hero {
+    position: relative;
+    min-height: 88vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .hero-text {
+    padding: 80px 80px 80px 80px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .hero-eyebrow::before {
+    content: "";
+    width: 36px;
+    height: 1px;
+    background: var(--brown);
+  }
+
+  .hero h1 {
+    font-size: clamp(48px, 6.5vw, 92px);
+    line-height: 0.95;
+    margin-bottom: 32px;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--olive-deep);
+    font-weight: 400;
+  }
+
+  .hero p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.6;
+    color: var(--ink-soft);
+    max-width: 480px;
+    margin-bottom: 44px;
+    font-style: italic;
+    font-weight: 400;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .btn {
+    display: inline-block;
+    padding: 16px 34px;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+  .btn-primary {
+    background: var(--olive-deep);
+    color: var(--cream);
+  }
+  .btn-primary:hover {
+    background: var(--ink);
+  }
+  .btn-ghost {
+    background: transparent;
+    color: var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 16px 4px;
+  }
+  .btn-ghost:hover { color: var(--olive-deep); border-color: var(--olive-deep); }
+
+  .hero-image {
+    position: relative;
+    height: 88vh;
+    overflow: hidden;
+  }
+
+  .hero-image img.hero-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.05) contrast(1.04);
+  }
+
+  .hero-meta {
+    position: absolute;
+    bottom: 40px; left: 40px;
+    background: var(--paper);
+    padding: 20px 28px;
+    border-left: 2px solid var(--olive-deep);
+    z-index: 3;
+    max-width: 280px;
+  }
+  .hero-meta-label {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+  .hero-meta-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.4;
+    color: var(--ink);
+  }
+
+  .hero-decor {
+    position: absolute;
+    top: 50%; right: 50%;
+    transform: translate(50%, -50%) rotate(-6deg);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 280px;
+    color: rgba(31, 26, 20, 0.04);
+    z-index: 1;
+    pointer-events: none;
+    line-height: 1;
+    letter-spacing: -0.05em;
+  }
+
+  /* ============= SECTION: VALUES STRIP ============= */
+  .strip {
+    padding: 70px 80px;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+    background: var(--cream);
+  }
+  .strip-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+  .strip-item {
+    text-align: center;
+    padding: 0 32px;
+    border-right: 1px solid var(--line);
+  }
+  .strip-item:last-child { border-right: none; }
+  .strip-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 38px;
+    color: var(--olive-deep);
+    margin-bottom: 14px;
+    font-weight: 400;
+  }
+  .strip-label {
+    font-size: 10px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .strip-text {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* ============= SECTION HEADERS ============= */
+  .section {
+    padding: 110px 80px;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-head {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: end;
+    gap: 60px;
+    margin-bottom: 70px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid var(--line);
+  }
+  .section-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 22px;
+    color: var(--brown);
+    font-weight: 400;
+  }
+  .section-title {
+    font-size: clamp(36px, 4vw, 60px);
+    line-height: 1;
+    color: var(--ink);
+    letter-spacing: -0.02em;
+  }
+  .section-title em { font-style: italic; color: var(--olive-deep); }
+  .section-link {
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-strong);
+    padding-bottom: 4px;
+    cursor: pointer;
+  }
+  .section-link:hover { color: var(--olive-deep); border-color: var(--olive-deep); }
+
+  /* ============= PRODUCT GRID (HOME) ============= */
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+  }
+  .product-card {
+    cursor: pointer;
+    position: relative;
+  }
+  .product-image {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    margin-bottom: 20px;
+    position: relative;
+    background: var(--cream-deep);
+  }
+  .product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .product-card:hover .product-image img { transform: scale(1.05); }
+
+  .product-tag {
+    position: absolute;
+    top: 16px; left: 16px;
+    background: var(--paper);
+    padding: 5px 12px;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    z-index: 2;
+    color: var(--olive-deep);
+    font-weight: 500;
+  }
+
+  .product-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 6px;
+  }
+  .product-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    color: var(--ink);
+    font-weight: 400;
+  }
+  .product-price {
+    font-size: 14px;
+    color: var(--ink-soft);
+    font-weight: 400;
+  }
+  .product-origin {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brown);
+  }
+
+  /* ============= STORY BLOCK ============= */
+  .story {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 80px;
+    align-items: center;
+    padding: 110px 80px;
+    background: var(--cream);
+    border-top: 1px solid var(--line);
+  }
+  .story-image {
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: var(--cream-deep);
+  }
+  .story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: saturate(1.05);
+  }
+
+  .story-content { padding-right: 80px; }
+  .story-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 22px;
+    font-weight: 500;
+  }
+  .story h2 {
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.05;
+    margin-bottom: 30px;
+    color: var(--ink);
+  }
+  .story h2 em { font-style: italic; color: var(--olive-deep); }
+  .story p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    line-height: 1.65;
+    color: var(--ink-soft);
+    margin-bottom: 18px;
+    font-style: italic;
+    font-weight: 400;
+  }
+  .story-sig {
+    margin-top: 34px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--olive-deep);
+  }
+
+  /* ============= B2B TEASER (HOME) ============= */
+  .b2b-teaser {
+    background: var(--olive-deep);
+    color: var(--cream);
+    padding: 100px 80px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .b2b-teaser::before {
+    content: "B2B";
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 480px;
+    color: rgba(245, 239, 230, 0.05);
+    line-height: 0.8;
+    pointer-events: none;
+  }
+  .b2b-teaser-content {
+    position: relative;
+    z-index: 2;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .b2b-teaser h2 {
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.05;
+    margin-bottom: 24px;
+    color: var(--cream);
+  }
+  .b2b-teaser h2 em { font-style: italic; color: #C5B98A; }
+  .b2b-teaser p {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px;
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-style: italic;
+    color: rgba(245, 239, 230, 0.85);
+    font-weight: 300;
+  }
+  .b2b-teaser .btn-primary {
+    background: var(--cream);
+    color: var(--olive-deep);
+  }
+  .b2b-teaser .btn-primary:hover {
+    background: white;
+  }
+
+  /* ============= JOURNAL TEASER (HOME) ============= */
+  .journal-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  .article-card {
+    cursor: pointer;
+  }
+  .article-image {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    margin-bottom: 24px;
+    background: var(--cream-deep);
+    position: relative;
+  }
+  .article-image img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
+  }
+  .article-card:hover .article-image img { transform: scale(1.05); }
+  .article-image.tinted::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(63, 74, 40, 0.4) 0%, rgba(63, 74, 40, 0.15) 100%);
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+  .article-meta {
+    display: flex;
+    gap: 14px;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .article-meta span:first-child { color: var(--olive-deep); }
+  .article-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    line-height: 1.2;
+    color: var(--ink);
+    margin-bottom: 12px;
+    font-weight: 500;
+  }
+  .article-excerpt {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  /* ============= SOCIAL FOOTER ============= */
+  .social-band {
+    background: var(--cream);
+    padding: 80px;
+    text-align: center;
+    border-top: 1px solid var(--line);
+  }
+  .social-band-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .social-band h3 {
+    font-size: 38px;
+    margin-bottom: 36px;
+    color: var(--ink);
+  }
+  .social-band h3 em { font-style: italic; color: var(--olive-deep); }
+  .social-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 14px;
+  }
+  .social-tile {
+    aspect-ratio: 1;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--cream-deep);
+    position: relative;
+  }
+  .social-tile img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+    display: block;
+  }
+  .social-tile:hover img { transform: scale(1.08); }
+
+  .social-handles {
+    display: flex;
+    justify-content: center;
+    gap: 36px;
+    margin-top: 36px;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .social-handles a { color: var(--ink); text-decoration: none; transition: color 0.3s; cursor: pointer; }
+  .social-handles a:hover { color: var(--olive-deep); }
+
+  /* ============= FOOTER ============= */
+  footer {
+    background: var(--ink);
+    color: var(--cream);
+    padding: 90px 80px 40px;
+  }
+  .footer-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr 1.5fr;
+    gap: 60px;
+    margin-bottom: 70px;
+  }
+  .footer-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    letter-spacing: 0.42em;
+    margin-bottom: 18px;
+    color: var(--cream);
+    font-weight: 500;
+  }
+  .footer-brand small {
+    display: block;
+    font-size: 9px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(245, 239, 230, 0.5);
+    margin-bottom: 26px;
+  }
+  .footer-brand p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    line-height: 1.6;
+    color: rgba(245, 239, 230, 0.7);
+    max-width: 320px;
+    font-weight: 300;
+  }
+  .footer-col h4 {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    margin-bottom: 22px;
+    color: rgba(245, 239, 230, 0.55);
+    font-weight: 500;
+  }
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-col a {
+    color: var(--cream);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.3s;
+    cursor: pointer;
+  }
+  .footer-col a:hover { color: #C5B98A; }
+
+  .newsletter input {
+    width: 100%;
+    padding: 14px 0;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(245, 239, 230, 0.3);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    margin-bottom: 16px;
+    outline: none;
+  }
+  .newsletter input::placeholder { color: rgba(245, 239, 230, 0.4); }
+  .newsletter input:focus { border-color: #C5B98A; }
+  .newsletter button {
+    background: transparent;
+    border: 1px solid rgba(245, 239, 230, 0.4);
+    color: var(--cream);
+    padding: 12px 28px;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s;
+  }
+  .newsletter button:hover {
+    background: var(--cream);
+    color: var(--ink);
+  }
+
+  .footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-top: 30px;
+    border-top: 1px solid rgba(245, 239, 230, 0.15);
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245, 239, 230, 0.5);
+  }
+
+  /* ============= TIENDA / SHOP VIEW ============= */
+  .shop-hero {
+    text-align: center;
+    padding: 100px 80px 60px;
+    border-bottom: 1px solid var(--line);
+  }
+  .shop-hero h1 {
+    font-size: clamp(50px, 6vw, 88px);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .shop-hero h1 em { font-style: italic; color: var(--olive-deep); }
+  .shop-hero p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 600px;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+
+  .shop-toolbar {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 30px 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+  .shop-filters { display: flex; gap: 28px; }
+  .shop-filters a {
+    color: var(--ink-soft);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .shop-filters a:hover, .shop-filters a.active { color: var(--olive-deep); }
+
+  .shop-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 70px 80px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 40px;
+  }
+  .shop-card .product-image { aspect-ratio: 1; }
+
+  /* Mosaic for the 'cesta degustación' tile (4 imágenes en cuadrícula) */
+  .mosaic {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2px;
+    background: var(--cream-deep);
+  }
+  .mosaic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+  }
+  .product-card:hover .mosaic img { transform: scale(1.05); }
+
+  /* ============= B2B VIEW ============= */
+  .b2b-hero {
+    background: var(--olive-deep);
+    color: var(--cream);
+    padding: 110px 80px 90px;
+    position: relative;
+    overflow: hidden;
+  }
+  .b2b-hero-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 80px;
+    align-items: end;
+    position: relative;
+    z-index: 2;
+  }
+  .b2b-hero h1 {
+    font-size: clamp(54px, 6.5vw, 96px);
+    line-height: 0.95;
+    margin-bottom: 30px;
+    color: var(--cream);
+    letter-spacing: -0.02em;
+  }
+  .b2b-hero h1 em { font-style: italic; color: #C5B98A; }
+  .b2b-hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: rgba(245, 239, 230, 0.6);
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .b2b-hero-eyebrow::before {
+    content: ""; width: 36px; height: 1px; background: rgba(245, 239, 230, 0.4);
+  }
+  .b2b-hero-tagline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-style: italic;
+    line-height: 1.5;
+    color: rgba(245, 239, 230, 0.85);
+    font-weight: 300;
+  }
+
+  .b2b-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 70px 80px;
+    border-bottom: 1px solid var(--line);
+  }
+  .stat {
+    padding: 0 24px;
+    border-right: 1px solid var(--line);
+  }
+  .stat:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--olive-deep);
+    margin-bottom: 12px;
+    font-weight: 400;
+  }
+  .stat-num em { font-style: italic; }
+  .stat-label {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-bottom: 8px;
+    font-weight: 500;
+  }
+  .stat-desc {
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.5;
+  }
+
+  .b2b-services {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 110px 80px;
+  }
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+  }
+  .service {
+    border-top: 1px solid var(--ink);
+    padding-top: 30px;
+  }
+  .service-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: var(--brown);
+    margin-bottom: 18px;
+    font-weight: 400;
+  }
+  .service h3 {
+    font-size: 28px;
+    line-height: 1.15;
+    margin-bottom: 18px;
+  }
+  .service h3 em { font-style: italic; color: var(--olive-deep); }
+  .service p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+  }
+
+  .b2b-form-section {
+    background: var(--cream);
+    padding: 110px 80px;
+    border-top: 1px solid var(--line);
+  }
+  .b2b-form-grid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 90px;
+  }
+  .b2b-form-intro h2 {
+    font-size: clamp(36px, 3.6vw, 50px);
+    line-height: 1.05;
+    margin-bottom: 28px;
+  }
+  .b2b-form-intro h2 em { font-style: italic; color: var(--olive-deep); }
+  .b2b-form-intro p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.6;
+    margin-bottom: 22px;
+    font-weight: 400;
+  }
+  .b2b-form-contact {
+    margin-top: 36px;
+    padding-top: 26px;
+    border-top: 1px solid var(--line);
+    font-size: 13px;
+    color: var(--ink-soft);
+    line-height: 1.8;
+  }
+  .b2b-form-contact strong {
+    display: block;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    color: var(--ink);
+    margin-bottom: 6px;
+    font-weight: 500;
+  }
+
+  .form-card {
+    background: var(--paper);
+    padding: 50px;
+    border: 1px solid var(--line);
+  }
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 26px;
+  }
+  .form-field {
+    display: flex;
+    flex-direction: column;
+  }
+  .form-field.full { grid-column: span 2; }
+  .form-field label {
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .form-field input,
+  .form-field select,
+  .form-field textarea {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line-strong);
+    padding: 8px 0 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.3s;
+  }
+  .form-field input:focus,
+  .form-field select:focus,
+  .form-field textarea:focus { border-color: var(--olive-deep); }
+  .form-field textarea {
+    resize: vertical;
+    min-height: 80px;
+    border: 1px solid var(--line-strong);
+    padding: 14px;
+  }
+  .form-card button {
+    background: var(--olive-deep);
+    color: var(--cream);
+    border: none;
+    padding: 18px 48px;
+    font-size: 11px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin-top: 16px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    transition: background 0.3s;
+  }
+  .form-card button:hover { background: var(--ink); }
+
+  /* ============= JOURNAL / BLOG VIEW ============= */
+  .journal-hero {
+    text-align: center;
+    padding: 100px 80px 70px;
+    border-bottom: 1px solid var(--line);
+  }
+  .journal-hero h1 {
+    font-size: clamp(50px, 6vw, 88px);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .journal-hero h1 em { font-style: italic; color: var(--olive-deep); }
+  .journal-hero p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 580px;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+
+  .journal-featured {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 80px 80px 0;
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 70px;
+    align-items: center;
+  }
+  .journal-featured-img {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: var(--cream-deep);
+    position: relative;
+  }
+  .journal-featured-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .journal-featured-img.tinted::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(63, 74, 40, 0.35) 0%, rgba(63, 74, 40, 0.1) 100%);
+    pointer-events: none;
+    mix-blend-mode: multiply;
+  }
+  .featured-tag {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+  .journal-featured h2 {
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.05;
+    margin-bottom: 22px;
+  }
+  .journal-featured h2 em { font-style: italic; color: var(--olive-deep); }
+  .journal-featured p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    color: var(--ink-soft);
+    line-height: 1.65;
+    margin-bottom: 26px;
+    font-weight: 400;
+  }
+  .journal-featured-meta {
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--brown);
+    display: flex;
+    gap: 14px;
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+
+  .journal-list {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 90px 80px 110px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px 40px;
+  }
+
+  /* ============= CONTACTO VIEW ============= */
+  .contact-hero {
+    text-align: center;
+    padding: 100px 80px 70px;
+    border-bottom: 1px solid var(--line);
+  }
+  .contact-hero h1 {
+    font-size: clamp(50px, 6vw, 88px);
+    line-height: 1;
+    margin-bottom: 20px;
+  }
+  .contact-hero h1 em { font-style: italic; color: var(--olive-deep); }
+  .contact-hero p {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 19px;
+    color: var(--ink-soft);
+    max-width: 540px;
+    margin: 0 auto;
+    font-weight: 400;
+  }
+
+  .contact-grid {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 90px 80px;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 90px;
+  }
+  .contact-info-block {
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--line);
+  }
+  .contact-info-block:last-child { border-bottom: none; }
+  .contact-info-label {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 14px;
+    font-weight: 500;
+  }
+  .contact-info-block h3 {
+    font-size: 28px;
+    margin-bottom: 14px;
+  }
+  .contact-info-block h3 em { font-style: italic; color: var(--olive-deep); }
+  .contact-info-block p {
+    font-size: 14px;
+    color: var(--ink-soft);
+    line-height: 1.7;
+  }
+  .contact-info-block a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid var(--line-strong);
+    cursor: pointer;
+    transition: color 0.3s;
+  }
+  .contact-info-block a:hover { color: var(--olive-deep); border-color: var(--olive-deep); }
+
+  .contact-form { background: var(--cream); padding: 50px; border: 1px solid var(--line); }
+
+  .contact-map {
+    aspect-ratio: 21/9;
+    background: linear-gradient(135deg, #6B4F2C 0%, #8B6B3E 100%);
+    margin-top: 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .contact-map svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .contact-map-pin {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--cream);
+    text-align: center;
+    font-family: 'Cormorant Garamond', serif;
+  }
+  .contact-map-pin .dot {
+    width: 14px; height: 14px;
+    background: var(--rust);
+    border-radius: 50%;
+    margin: 0 auto 12px;
+    box-shadow: 0 0 0 6px rgba(166, 81, 44, 0.3), 0 0 0 14px rgba(166, 81, 44, 0.15);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 6px rgba(166, 81, 44, 0.3), 0 0 0 14px rgba(166, 81, 44, 0.15); }
+    50% { box-shadow: 0 0 0 10px rgba(166, 81, 44, 0.4), 0 0 0 22px rgba(166, 81, 44, 0.05); }
+  }
+  .contact-map-pin .label {
+    font-size: 13px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+  }
+
+  /* ============= UTILITIES ============= */
+  @media (max-width: 1024px) {
+    .nav { padding: 18px 24px; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text { padding: 60px 24px; }
+    .hero-image { height: 60vh; }
+    .section, .strip, .story, .b2b-teaser, .social-band,
+    .shop-hero, .shop-toolbar, .shop-grid,
+    .b2b-hero, .b2b-stats, .b2b-services, .b2b-form-section,
+    .journal-hero, .journal-featured, .journal-list,
+    .contact-hero, .contact-grid {
+      padding-left: 24px; padding-right: 24px;
+    }
+    .product-grid, .shop-grid, .journal-list { grid-template-columns: repeat(2, 1fr); }
+    .strip-grid, .b2b-stats { grid-template-columns: repeat(2, 1fr); gap: 30px; }
+    .strip-item, .stat { border-right: none; }
+    .footer-grid, .b2b-form-grid, .contact-grid, .b2b-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .story { grid-template-columns: 1fr; padding: 60px 24px; }
+    .social-grid { grid-template-columns: repeat(3, 1fr); }
+    .services-grid, .journal-grid { grid-template-columns: 1fr; gap: 32px; }
+    footer { padding: 60px 24px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="top-strip">Envío gratuito a partir de 45 € · Pedidos B2B en 48 h</div>
+  <nav class="nav">
+    <div class="nav-left">
+      <a data-go="home" class="active">Inicio</a>
+      <a data-go="shop">Tienda</a>
+      <a data-go="b2b">B2B</a>
+      <a data-go="journal">Diario</a>
+    </div>
+    <div class="logo" data-go="home">
+      FRUTOS
+      <small>Fine Nuts &amp; Dried Fruits</small>
+    </div>
+    <div class="nav-right">
+      <a data-go="contact">Contacto</a>
+      <a>ES / EN</a>
+      <a>Carrito (0)</a>
+    </div>
+  </nav>
+</header>
+
+<!-- ============================================== HOME ============================================== -->
+<main id="view-home" class="view active">
+
+  <section class="hero">
+    <div class="hero-decor">naturalmente</div>
+    <div class="hero-text">
+      <div class="hero-eyebrow">desde brasil &middot; envasado en valencia</div>
+      <h1>Frutos secos<br>de <em>origen</em></h1>
+      <p>Trabajamos directamente con cooperativas certificadas en Brasil para llevar a Europa cuatro variedades únicas: nueces pecanas, anacardo, macadamia y cacahuete.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" data-go="shop">Comprar ahora</a>
+        <a class="btn btn-ghost" data-go="b2b">Soy distribuidor →</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img class="hero-photo" src="images/Nueces_Pecanas.png" alt="Granel de nueces pecanas">
+      <div class="hero-meta">
+        <div class="hero-meta-label">Lote 04 / 2026</div>
+        <div class="hero-meta-text">Nueces pecanas — Río Grande do Sul, Brasil. Cosecha de temporada certificada.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="strip">
+    <div class="strip-grid">
+      <div class="strip-item">
+        <div class="strip-num">01</div>
+        <div class="strip-label">Origen único</div>
+        <div class="strip-text">Compra directa a cooperativas brasileñas certificadas GLOBAL G.A.P.</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num">02</div>
+        <div class="strip-label">Trazabilidad total</div>
+        <div class="strip-text">Cada lote identificado desde el árbol hasta tu cocina.</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num">03</div>
+        <div class="strip-label">Envases conscientes</div>
+        <div class="strip-text">Bolsas compostables y kraft reciclado. Cero plástico virgen.</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num">04</div>
+        <div class="strip-label">Comercio justo</div>
+        <div class="strip-text">Precio digno al productor. Sin intermediarios abusivos.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num"><em>i.</em></div>
+      <h2 class="section-title">Nuestra <em>selección</em></h2>
+      <a class="section-link" data-go="shop">Ver catálogo →</a>
+    </div>
+    <div class="product-grid">
+      <article class="product-card" data-go="shop">
+        <div class="product-image">
+          <span class="product-tag">Bestseller</span>
+          <img src="images/Nueces_Pecanas.png" alt="Nueces pecanas">
+        </div>
+        <div class="product-meta">
+          <div class="product-name">Nueces pecanas</div>
+          <div class="product-price">€ 14,50 / 250g</div>
+        </div>
+        <div class="product-origin">Río Grande do Sul · Brasil</div>
+      </article>
+
+      <article class="product-card" data-go="shop">
+        <div class="product-image">
+          <span class="product-tag">Nuevo</span>
+          <img src="images/Anacardos.png" alt="Anacardos naturales">
+        </div>
+        <div class="product-meta">
+          <div class="product-name">Anacardo natural</div>
+          <div class="product-price">€ 11,90 / 250g</div>
+        </div>
+        <div class="product-origin">Ceará · Brasil</div>
+      </article>
+
+      <article class="product-card" data-go="shop">
+        <div class="product-image">
+          <img src="images/Macadamias.png" alt="Macadamias enteras">
+        </div>
+        <div class="product-meta">
+          <div class="product-name">Macadamia entera</div>
+          <div class="product-price">€ 18,40 / 200g</div>
+        </div>
+        <div class="product-origin">Bahia · Brasil</div>
+      </article>
+
+      <article class="product-card" data-go="shop">
+        <div class="product-image">
+          <img src="images/Cacahuetes.png" alt="Cacahuetes">
+        </div>
+        <div class="product-meta">
+          <div class="product-name">Cacahuete tostado</div>
+          <div class="product-price">€ 6,80 / 300g</div>
+        </div>
+        <div class="product-origin">São Paulo · Brasil</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="story-image">
+      <img src="images/Nueces_Pecanas.png" alt="Detalle de nueces pecanas">
+    </div>
+    <div class="story-content">
+      <div class="story-eyebrow">Nuestro propósito</div>
+      <h2>Del árbol<br>a tu <em>despensa</em>.</h2>
+      <p>Nacimos en Valencia con una idea simple: que un anacardo sepa a anacardo, que la nuez conserve la mantequilla del bosque, que el productor cobre lo justo y que el envase no envenene un río.</p>
+      <p>Cada importación pasa por nuestro almacén en Agullent, donde pesamos, envasamos y enviamos en lotes pequeños. Sin grandes cadenas. Sin atajos.</p>
+      <div class="story-sig">— Frutos S.L., desde 2026</div>
+    </div>
+  </section>
+
+  <section class="b2b-teaser">
+    <div class="b2b-teaser-content">
+      <h2>¿Distribuidor, retail<br>o canal <em>HORECA</em>?</h2>
+      <p>Trabajamos con tiendas gourmet, restauración, hoteles y marcas que necesitan frutos secos premium con trazabilidad documentada. Solicita catálogo profesional y condiciones de volumen.</p>
+      <a class="btn btn-primary" data-go="b2b">Acceso B2B →</a>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-head">
+      <div class="section-num"><em>ii.</em></div>
+      <h2 class="section-title">El <em>diario</em></h2>
+      <a class="section-link" data-go="journal">Leer todos los artículos →</a>
+    </div>
+    <div class="journal-grid">
+      <article class="article-card" data-go="journal">
+        <div class="article-image tinted">
+          <img src="images/Nueces_Pecanas.png" alt="Cosecha sostenible">
+        </div>
+        <div class="article-meta"><span>Sostenibilidad</span><span>5 min</span></div>
+        <div class="article-title">Por qué cosechar nueces no debería deforestar el bosque</div>
+        <p class="article-excerpt">El extractivismo no maderable es una vía real para preservar el bosque. Te contamos cómo funciona.</p>
+      </article>
+
+      <article class="article-card" data-go="journal">
+        <div class="article-image">
+          <img src="images/Macadamias.png" alt="Macadamias y nutrición">
+        </div>
+        <div class="article-meta"><span>Nutrición</span><span>3 min</span></div>
+        <div class="article-title">Una pequeña dosis diaria de selenio: el caso de la nuez pecana</div>
+        <p class="article-excerpt">Una sola porción cubre buena parte de tu necesidad diaria. La ciencia detrás de un mineral olvidado.</p>
+      </article>
+
+      <article class="article-card" data-go="journal">
+        <div class="article-image">
+          <img src="images/Anacardos.png" alt="Anacardos en granel">
+        </div>
+        <div class="article-meta"><span>Comercio</span><span>6 min</span></div>
+        <div class="article-title">Incoterms 2020 para pequeños importadores: la guía sin tecnicismos</div>
+        <p class="article-excerpt">Por qué elegimos FOB para nuestras importaciones desde Santos y qué implica para el precio final.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="social-band">
+    <div class="social-band-eyebrow">Síguenos</div>
+    <h3>@frutos_<em>sl</em></h3>
+    <div class="social-grid">
+      <div class="social-tile"><img src="images/Nueces_Pecanas.png" alt=""></div>
+      <div class="social-tile"><img src="images/Anacardos.png" alt=""></div>
+      <div class="social-tile"><img src="images/Macadamias.png" alt=""></div>
+      <div class="social-tile"><img src="images/Cacahuetes.png" alt=""></div>
+      <div class="social-tile"><img src="images/Nueces_Pecanas.png" alt="" style="object-position: center 30%;"></div>
+      <div class="social-tile"><img src="images/Anacardos.png" alt="" style="object-position: 30% center;"></div>
+    </div>
+    <div class="social-handles">
+      <a>Instagram</a>
+      <a>LinkedIn</a>
+      <a>Facebook</a>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================== TIENDA ============================================== -->
+<main id="view-shop" class="view">
+  <section class="shop-hero">
+    <h1>La <em>tienda</em></h1>
+    <p>Cuatro variedades, un origen, lotes pequeños. Compra suelta o suscríbete y recibe novedades de cosecha cada temporada.</p>
+  </section>
+
+  <div class="shop-toolbar">
+    <div class="shop-filters">
+      <a class="active">Todo</a>
+      <a>Frutos secos</a>
+      <a>Cestas regalo</a>
+      <a>Suscripción</a>
+    </div>
+    <div>Ordenar: Recomendados</div>
+  </div>
+
+  <section class="shop-grid">
+    <article class="product-card shop-card">
+      <div class="product-image">
+        <span class="product-tag">Bestseller</span>
+        <img src="images/Nueces_Pecanas.png" alt="Nueces pecanas 250g">
+      </div>
+      <div class="product-meta"><div class="product-name">Nueces pecanas — 250 g</div><div class="product-price">€ 14,50</div></div>
+      <div class="product-origin">Río Grande do Sul · cosecha temporada</div>
+    </article>
+    <article class="product-card shop-card">
+      <div class="product-image">
+        <img src="images/Anacardos.png" alt="Anacardo natural 250g">
+      </div>
+      <div class="product-meta"><div class="product-name">Anacardo natural — 250 g</div><div class="product-price">€ 11,90</div></div>
+      <div class="product-origin">Ceará · sin tostar, sin sal</div>
+    </article>
+    <article class="product-card shop-card">
+      <div class="product-image">
+        <img src="images/Macadamias.png" alt="Macadamia entera 200g">
+      </div>
+      <div class="product-meta"><div class="product-name">Macadamia entera — 200 g</div><div class="product-price">€ 18,40</div></div>
+      <div class="product-origin">Bahia · grano grado AA</div>
+    </article>
+    <article class="product-card shop-card">
+      <div class="product-image">
+        <img src="images/Cacahuetes.png" alt="Cacahuete tostado 300g">
+      </div>
+      <div class="product-meta"><div class="product-name">Cacahuete tostado — 300 g</div><div class="product-price">€ 6,80</div></div>
+      <div class="product-origin">São Paulo · ligero punto de sal marina</div>
+    </article>
+    <article class="product-card shop-card">
+      <div class="product-image">
+        <span class="product-tag">Edición regalo</span>
+        <div class="mosaic">
+          <img src="images/Nueces_Pecanas.png" alt="">
+          <img src="images/Anacardos.png" alt="">
+          <img src="images/Macadamias.png" alt="">
+          <img src="images/Cacahuetes.png" alt="">
+        </div>
+      </div>
+      <div class="product-meta"><div class="product-name">Cesta degustación · 4 variedades</div><div class="product-price">€ 39,00</div></div>
+      <div class="product-origin">Las cuatro joyas en formato 150 g</div>
+    </article>
+    <article class="product-card shop-card">
+      <div class="product-image">
+        <span class="product-tag">Suscripción</span>
+        <img src="images/Macadamias.png" alt="Caja del mes" style="object-position: 30% 70%;">
+      </div>
+      <div class="product-meta"><div class="product-name">Caja del mes</div><div class="product-price">€ 24,90 / mes</div></div>
+      <div class="product-origin">Una variedad sorpresa cada cosecha</div>
+    </article>
+  </section>
+</main>
+
+<!-- ============================================== B2B ============================================== -->
+<main id="view-b2b" class="view">
+  <section class="b2b-hero">
+    <div class="b2b-hero-grid">
+      <div>
+        <div class="b2b-hero-eyebrow">Para distribuidores, retail y horeca</div>
+        <h1>Suministro<br>profesional con <em>narrativa</em>.</h1>
+      </div>
+      <p class="b2b-hero-tagline">Cuatro variedades. Trazabilidad documentada. Volúmenes desde 25 kg. Plazos de entrega en 48 h dentro de la Península; 5–7 días en el resto de la UE.</p>
+    </div>
+  </section>
+
+  <section class="b2b-stats">
+    <div class="stat">
+      <div class="stat-num">04</div>
+      <div class="stat-label">Variedades</div>
+      <div class="stat-desc">Nueces pecanas, anacardo, macadamia y cacahuete.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100<em>%</em></div>
+      <div class="stat-label">GLOBAL G.A.P.</div>
+      <div class="stat-desc">Toda la red de productores certificada.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">25<em>kg</em></div>
+      <div class="stat-label">Pedido mínimo</div>
+      <div class="stat-desc">Formatos a granel y blísters profesionales.</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">48<em>h</em></div>
+      <div class="stat-label">Entrega España</div>
+      <div class="stat-desc">Logística desde Agullent (Valencia).</div>
+    </div>
+  </section>
+
+  <section class="b2b-services">
+    <div class="services-grid">
+      <div class="service">
+        <div class="service-num">— servicio i.</div>
+        <h3>Catálogo <em>profesional</em></h3>
+        <p>Fichas técnicas, especificaciones de calibre, certificados sanitarios y documentación aduanera disponibles para cada referencia.</p>
+      </div>
+      <div class="service">
+        <div class="service-num">— servicio ii.</div>
+        <h3>White label &amp; <em>private brand</em></h3>
+        <p>Envasado a marca blanca para retail especializado. Diseño de etiqueta y packaging compostable a medida desde 200 unidades.</p>
+      </div>
+      <div class="service">
+        <div class="service-num">— servicio iii.</div>
+        <h3>Logística <em>integral</em></h3>
+        <p>Almacenaje en seco con control de humedad, despacho aduanero EORI propio y entrega DDP en la Unión Europea.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="b2b-form-section">
+    <div class="b2b-form-grid">
+      <div class="b2b-form-intro">
+        <h2>Solicita <em>catálogo</em> y tarifa profesional</h2>
+        <p>Cuéntanos tu canal, volumen estimado y mercado objetivo. Nuestro equipo comercial responde en 24 horas laborables con catálogo digital, ficha técnica y propuesta personalizada.</p>
+        <div class="b2b-form-contact">
+          <strong>Equipo comercial</strong>
+          comercial@frutos.eu<br>
+          +34 678 371 052<br>
+          Lunes a viernes, 9:00 – 18:00 (CET)
+        </div>
+      </div>
+      <form class="form-card" onsubmit="event.preventDefault(); alert('Solicitud enviada (demo)');">
+        <div class="form-row">
+          <div class="form-field"><label>Nombre comercial</label><input type="text" required></div>
+          <div class="form-field"><label>Persona de contacto</label><input type="text" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Email corporativo</label><input type="email" required></div>
+          <div class="form-field"><label>Teléfono</label><input type="tel"></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field"><label>Tipo de canal</label>
+            <select>
+              <option>Distribuidor mayorista</option>
+              <option>Retail / Tienda gourmet</option>
+              <option>HORECA / Restauración</option>
+              <option>E-commerce</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-field"><label>Volumen mensual estimado</label>
+            <select>
+              <option>25 – 100 kg</option>
+              <option>100 – 500 kg</option>
+              <option>500 kg – 1 t</option>
+              <option>Más de 1 t</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full"><label>Mensaje (opcional)</label>
+            <textarea placeholder="Mercado objetivo, referencias de interés, plazos..."></textarea>
+          </div>
+        </div>
+        <button type="submit">Enviar solicitud →</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<!-- ============================================== JOURNAL ============================================== -->
+<main id="view-journal" class="view">
+  <section class="journal-hero">
+    <h1>El <em>diario</em></h1>
+    <p>Notas sobre nutrición, sostenibilidad, comercio internacional y los rincones de Brasil donde nacen nuestros frutos.</p>
+  </section>
+
+  <section class="journal-featured">
+    <div class="journal-featured-img tinted">
+      <img src="images/Nueces_Pecanas.png" alt="El bosque que cosecha sin talar">
+    </div>
+    <div>
+      <div class="featured-tag">Artículo destacado</div>
+      <h2>El bosque que <em>cosecha sin talar</em>.</h2>
+      <p>Viajamos hasta el sur de Brasil para entender cómo más de 12 cooperativas conviven con un bosque que necesita estar en pie para seguir produciendo nuez. Una crónica sobre lo que significa, hoy, la palabra "sostenible".</p>
+      <div class="journal-featured-meta"><span>Sostenibilidad</span><span>10 min de lectura</span><span>Marzo 2026</span></div>
+      <a class="btn btn-ghost">Leer crónica completa →</a>
+    </div>
+  </section>
+
+  <section class="journal-list">
+    <article class="article-card">
+      <div class="article-image">
+        <img src="images/Macadamias.png" alt="">
+      </div>
+      <div class="article-meta"><span>Nutrición</span><span>3 min</span></div>
+      <div class="article-title">Una pequeña dosis diaria de selenio: el caso de la nuez pecana</div>
+      <p class="article-excerpt">Una sola porción cubre buena parte de tu necesidad diaria del mineral. Te contamos cómo funciona y por qué importa.</p>
+    </article>
+
+    <article class="article-card">
+      <div class="article-image">
+        <img src="images/Anacardos.png" alt="">
+      </div>
+      <div class="article-meta"><span>Comercio</span><span>6 min</span></div>
+      <div class="article-title">Incoterms 2020 para pequeños importadores</div>
+      <p class="article-excerpt">Por qué elegimos FOB para nuestras importaciones desde Santos y qué implica para el precio final.</p>
+    </article>
+
+    <article class="article-card">
+      <div class="article-image">
+        <img src="images/Macadamias.png" alt="" style="object-position: 70% 30%;">
+      </div>
+      <div class="article-meta"><span>Cocina</span><span>4 min</span></div>
+      <div class="article-title">Macadamia tostada al miso: receta de fin de semana</div>
+      <p class="article-excerpt">Una elaboración japonesa-brasileña de cinco ingredientes para el aperitivo perfecto.</p>
+    </article>
+
+    <article class="article-card">
+      <div class="article-image tinted">
+        <img src="images/Cacahuetes.png" alt="">
+      </div>
+      <div class="article-meta"><span>Sostenibilidad</span><span>5 min</span></div>
+      <div class="article-title">Adiós al plástico virgen: cómo elegimos nuestro packaging</div>
+      <p class="article-excerpt">Bolsas de celulosa compostable, kraft reciclado, etiquetas sin laminado. Las decisiones detrás del envase.</p>
+    </article>
+
+    <article class="article-card">
+      <div class="article-image">
+        <img src="images/Anacardos.png" alt="" style="object-position: 30% 70%;">
+      </div>
+      <div class="article-meta"><span>Origen</span><span>7 min</span></div>
+      <div class="article-title">Anacardo: el fruto que primero floreció en lengua tupi</div>
+      <p class="article-excerpt">Origen, etimología y un viaje al Ceará para entender cómo se procesa esta semilla compleja.</p>
+    </article>
+
+    <article class="article-card">
+      <div class="article-image">
+        <img src="images/Nueces_Pecanas.png" alt="" style="object-position: 60% 40%;">
+      </div>
+      <div class="article-meta"><span>Nutrición</span><span>4 min</span></div>
+      <div class="article-title">Grasa buena: por qué los frutos secos son aliados, no enemigos</div>
+      <p class="article-excerpt">Un repaso a la evidencia: cardioprotección, saciedad y composición de ácidos grasos.</p>
+    </article>
+  </section>
+</main>
+
+<!-- ============================================== CONTACTO ============================================== -->
+<main id="view-contact" class="view">
+  <section class="contact-hero">
+    <h1><em>Contacto</em></h1>
+  </section>
+
+  <section class="contact-grid">
+    <div>
+      <div class="contact-info-block">
+        <div class="contact-info-label">Almacén &amp; oficina</div>
+        <h3>Agullent, <em>Valencia</em></h3>
+        <p>Polígono Industrial Es Camí Vell<br>Carrer del Forn 14, nave 8<br>46890 Agullent (Valencia), España</p>
+      </div>
+      <div class="contact-info-block">
+        <div class="contact-info-label">Atención clientes</div>
+        <h3>Hablamos <em>contigo</em></h3>
+        <p>
+          <a>hola@frutos.eu</a><br>
+          +34 678 371 052<br>
+          Lunes a viernes, 9:00 – 18:00 CET
+        </p>
+      </div>
+      <div class="contact-info-block">
+        <div class="contact-info-label">Comercial &amp; B2B</div>
+        <h3>Pedidos <em>profesionales</em></h3>
+        <p>
+          <a>comercial@frutos.eu</a><br>
+          Respuesta en 24 h laborables
+        </p>
+      </div>
+      <div class="contact-info-block">
+        <div class="contact-info-label">Prensa &amp; medios</div>
+        <h3>Hablan de <em>nosotros</em></h3>
+        <p><a>prensa@frutos.eu</a></p>
+      </div>
+    </div>
+    <div>
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Mensaje enviado (demo)');">
+        <div class="form-row">
+          <div class="form-field"><label>Nombre</label><input type="text" required></div>
+          <div class="form-field"><label>Email</label><input type="email" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full"><label>Asunto</label>
+            <select>
+              <option>Pedido / postventa</option>
+              <option>Consulta B2B</option>
+              <option>Colaboración / prensa</option>
+              <option>Sostenibilidad</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-field full"><label>Mensaje</label><textarea required></textarea></div>
+        </div>
+        <button type="submit">Enviar mensaje →</button>
+      </form>
+    </div>
+  </section>
+
+  <div class="contact-map">
+    <svg viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
+      <defs>
+        <pattern id="topo" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+          <path d="M 0 100 Q 50 70 100 100 T 200 100" stroke="rgba(245,239,230,0.12)" fill="none" stroke-width="1"/>
+          <path d="M 0 130 Q 50 100 100 130 T 200 130" stroke="rgba(245,239,230,0.10)" fill="none" stroke-width="1"/>
+          <path d="M 0 160 Q 50 130 100 160 T 200 160" stroke="rgba(245,239,230,0.08)" fill="none" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="1400" height="600" fill="url(#topo)"/>
+    </svg>
+    <div class="contact-map-pin">
+      <div class="dot"></div>
+      <div class="label">Agullent · 38.84 N · 0.55 W</div>
+    </div>
+  </div>
+</main>
+
+<!-- ============================================== FOOTER ============================================== -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-brand-name">FRUTOS</div>
+      <small>Fine Nuts &amp; Dried Fruits</small>
+      <p>Frutos secos premium importados directamente de cooperativas brasileñas certificadas, envasados a mano en Valencia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tienda</h4>
+      <ul>
+        <li><a>Nueces pecanas</a></li>
+        <li><a>Anacardo</a></li>
+        <li><a>Macadamia</a></li>
+        <li><a>Cacahuete</a></li>
+        <li><a>Cestas regalo</a></li>
+        <li><a>Suscripción</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a>Sobre Frutos</a></li>
+        <li><a>Sostenibilidad</a></li>
+        <li><a>Productores</a></li>
+        <li><a>Diario</a></li>
+        <li><a>B2B</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Ayuda</h4>
+      <ul>
+        <li><a>Envíos &amp; entregas</a></li>
+        <li><a>Devoluciones</a></li>
+        <li><a>Términos legales</a></li>
+        <li><a>Privacidad</a></li>
+        <li><a>FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col newsletter">
+      <h4>Suscríbete</h4>
+      <p style="font-size: 13px; color: rgba(245,239,230,0.7); margin-bottom: 16px;">Una nota mensual sobre cosechas, recetas y diario.</p>
+      <input type="email" placeholder="tu@email.com">
+      <button>Apuntarme</button>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Frutos S.L. · CIF B12345678 · Todos los derechos reservados</div>
+    <div>Hecho en Valencia con cariño</div>
+  </div>
+</footer>
+
+<script>
+  // ============= ROUTER (vista por vista) =============
+  const views = ['home', 'shop', 'b2b', 'journal', 'contact'];
+  function go(v) {
+    views.forEach(name => {
+      document.getElementById('view-' + name).classList.toggle('active', name === v);
+    });
+    document.querySelectorAll('.nav a').forEach(a => {
+      a.classList.toggle('active', a.dataset.go === v);
+    });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  document.querySelectorAll('[data-go]').forEach(el => {
+    el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); });
+  });
+</script>
+
+</body>
+</html>

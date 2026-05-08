@@ -38,6 +38,10 @@
     overflow-x: hidden;
   }
 
+  body.newsletter-modal-open {
+    overflow: hidden;
+  }
+
   .display, h1, h2, h3 {
     font-family: 'Cormorant Garamond', serif;
     font-weight: 400;
@@ -1238,6 +1242,222 @@
     font-weight: 500;
   }
 
+  /* ============= NEWSLETTER MODAL ============= */
+  .newsletter-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 28px;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.35s ease, visibility 0.35s ease;
+  }
+
+  .newsletter-modal.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  .newsletter-modal-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(31, 26, 20, 0.48);
+    backdrop-filter: blur(8px);
+  }
+
+  .newsletter-modal-card {
+    position: relative;
+    z-index: 2;
+    width: min(920px, 100%);
+    background: var(--paper);
+    border: 1px solid rgba(245, 239, 230, 0.5);
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    box-shadow: 0 34px 90px rgba(31, 26, 20, 0.28);
+    transform: translateY(18px) scale(0.98);
+    transition: transform 0.35s ease;
+    overflow: hidden;
+  }
+
+  .newsletter-modal.is-visible .newsletter-modal-card {
+    transform: translateY(0) scale(1);
+  }
+
+  .newsletter-modal-visual {
+    position: relative;
+    min-height: 430px;
+    background:
+      linear-gradient(180deg, rgba(63, 74, 40, 0.48), rgba(31, 26, 20, 0.18)),
+      url("images/Nueces_Pecanas.png") center / cover;
+    overflow: hidden;
+  }
+
+  .newsletter-modal-visual::before {
+    content: "carta";
+    position: absolute;
+    left: 28px;
+    bottom: -18px;
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 142px;
+    line-height: 0.8;
+    color: rgba(250, 246, 238, 0.16);
+    letter-spacing: -0.06em;
+  }
+
+  .newsletter-modal-badge {
+    position: absolute;
+    top: 26px;
+    left: 26px;
+    background: var(--paper);
+    color: var(--olive-deep);
+    padding: 7px 13px;
+    font-size: 9px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  .newsletter-modal-content {
+    position: relative;
+    padding: 58px 58px 50px;
+    background:
+      radial-gradient(circle at top right, rgba(122, 136, 85, 0.12), transparent 42%),
+      var(--paper);
+  }
+
+  .newsletter-modal-close {
+    position: absolute;
+    top: 22px;
+    right: 22px;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    font-size: 22px;
+    line-height: 1;
+    font-family: 'Cormorant Garamond', serif;
+    transition: all 0.3s ease;
+  }
+
+  .newsletter-modal-close:hover {
+    background: var(--olive-deep);
+    color: var(--cream);
+    border-color: var(--olive-deep);
+  }
+
+  .newsletter-modal-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--brown);
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  .newsletter-modal-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(38px, 4vw, 58px);
+    line-height: 0.98;
+    color: var(--ink);
+    margin-bottom: 22px;
+    font-weight: 400;
+    letter-spacing: -0.03em;
+  }
+
+  .newsletter-modal-title em {
+    font-style: italic;
+    color: var(--olive-deep);
+  }
+
+  .newsletter-modal-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.58;
+    color: var(--ink-soft);
+    margin-bottom: 32px;
+    font-weight: 400;
+  }
+
+  .newsletter-modal-form {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 14px;
+    align-items: end;
+    margin-bottom: 18px;
+  }
+
+  .newsletter-modal-form input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--line-strong);
+    padding: 15px 0;
+    color: var(--ink);
+    outline: none;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 300;
+  }
+
+  .newsletter-modal-form input::placeholder {
+    color: rgba(31, 26, 20, 0.42);
+  }
+
+  .newsletter-modal-form input:focus {
+    border-color: var(--olive-deep);
+  }
+
+  .newsletter-modal-form button {
+    background: var(--olive-deep);
+    color: var(--cream);
+    border: none;
+    padding: 17px 28px;
+    font-size: 10px;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .newsletter-modal-form button:hover {
+    background: var(--ink);
+  }
+
+  .newsletter-modal-note {
+    font-size: 11px;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .newsletter-modal-success {
+    display: none;
+    margin-top: 20px;
+    padding: 18px 20px;
+    border-left: 2px solid var(--olive-deep);
+    background: var(--cream);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--olive-deep);
+    line-height: 1.45;
+  }
+
+  .newsletter-modal-success.is-visible {
+    display: block;
+  }
+
   /* ============= UTILITIES ============= */
   @media (max-width: 1024px) {
     .nav { padding: 18px 24px; }
@@ -1259,6 +1479,72 @@
     .social-grid { grid-template-columns: repeat(3, 1fr); }
     .services-grid, .journal-grid { grid-template-columns: 1fr; gap: 32px; }
     footer { padding: 60px 24px 30px; }
+
+    .newsletter-modal-card {
+      grid-template-columns: 1fr;
+      max-width: 560px;
+    }
+
+    .newsletter-modal-visual {
+      min-height: 220px;
+    }
+
+    .newsletter-modal-content {
+      padding: 46px 32px 38px;
+    }
+
+    .newsletter-modal-form {
+      grid-template-columns: 1fr;
+    }
+
+    .newsletter-modal-form button {
+      width: 100%;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .newsletter-modal {
+      padding: 16px;
+      align-items: flex-end;
+    }
+
+    .newsletter-modal-card {
+      max-height: calc(100vh - 32px);
+      overflow-y: auto;
+    }
+
+    .newsletter-modal-visual {
+      min-height: 150px;
+    }
+
+    .newsletter-modal-visual::before {
+      font-size: 88px;
+      left: 18px;
+      bottom: -10px;
+    }
+
+    .newsletter-modal-badge {
+      top: 18px;
+      left: 18px;
+    }
+
+    .newsletter-modal-content {
+      padding: 38px 24px 30px;
+    }
+
+    .newsletter-modal-close {
+      top: 16px;
+      right: 16px;
+      background: rgba(250, 246, 238, 0.82);
+    }
+
+    .newsletter-modal-title {
+      font-size: 40px;
+    }
+
+    .newsletter-modal-text {
+      font-size: 17px;
+    }
   }
 </style>
 </head>
@@ -1797,6 +2083,33 @@
   </div>
 </main>
 
+<!-- ============================================== NEWSLETTER MODAL ============================================== -->
+<div class="newsletter-modal" id="newsletterModal" aria-hidden="true">
+  <div class="newsletter-modal-overlay" data-newsletter-close></div>
+
+  <div class="newsletter-modal-card" role="dialog" aria-modal="true" aria-labelledby="newsletterModalTitle">
+    <div class="newsletter-modal-visual">
+      <div class="newsletter-modal-badge">Carta de temporada</div>
+    </div>
+
+    <div class="newsletter-modal-content">
+      <button class="newsletter-modal-close" type="button" aria-label="Cerrar ventana de suscripción" data-newsletter-close>&times;</button>
+
+      <div class="newsletter-modal-eyebrow">Origen, recetas y cosechas</div>
+      <h2 class="newsletter-modal-title" id="newsletterModalTitle">Recibe nuestra carta de <em>temporada</em></h2>
+      <p class="newsletter-modal-text">Una nota mensual sobre cosechas, recetas y origen. Sin ruido. Solo frutos, historias y temporada.</p>
+
+      <form class="newsletter-modal-form" id="newsletterModalForm">
+        <input type="email" id="newsletterModalEmail" placeholder="tu@email.com" aria-label="Email para suscribirte a la newsletter" required>
+        <button type="submit">Suscribirme</button>
+      </form>
+
+      <p class="newsletter-modal-note">Prometemos escribir poco y bien. Puedes darte de baja cuando quieras.</p>
+      <div class="newsletter-modal-success" id="newsletterModalSuccess">Gracias por suscribirte. Pronto recibirás nuestra próxima carta.</div>
+    </div>
+  </div>
+</div>
+
 <!-- ============================================== FOOTER ============================================== -->
 <footer>
   <div class="footer-grid">
@@ -1864,6 +2177,74 @@
   document.querySelectorAll('[data-go]').forEach(el => {
     el.addEventListener('click', e => { e.preventDefault(); go(el.dataset.go); });
   });
+
+  // ============= NEWSLETTER MODAL =============
+  const newsletterModal = document.getElementById('newsletterModal');
+  const newsletterModalForm = document.getElementById('newsletterModalForm');
+  const newsletterModalSuccess = document.getElementById('newsletterModalSuccess');
+  const newsletterStorageKey = 'frutosNewsletterModalDismissedAt';
+  const newsletterSevenDays = 7 * 24 * 60 * 60 * 1000;
+
+  function shouldShowNewsletterModal() {
+    const dismissedAt = localStorage.getItem(newsletterStorageKey);
+
+    if (!dismissedAt) return true;
+
+    const elapsedTime = Date.now() - Number(dismissedAt);
+    return elapsedTime > newsletterSevenDays;
+  }
+
+  function rememberNewsletterModal() {
+    localStorage.setItem(newsletterStorageKey, Date.now().toString());
+  }
+
+  function openNewsletterModal() {
+    if (!newsletterModal) return;
+
+    newsletterModal.classList.add('is-visible');
+    newsletterModal.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('newsletter-modal-open');
+  }
+
+  function closeNewsletterModal(savePreference = true) {
+    if (!newsletterModal) return;
+
+    newsletterModal.classList.remove('is-visible');
+    newsletterModal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('newsletter-modal-open');
+
+    if (savePreference) {
+      rememberNewsletterModal();
+    }
+  }
+
+  if (newsletterModal && shouldShowNewsletterModal()) {
+    setTimeout(openNewsletterModal, 450);
+  }
+
+  document.querySelectorAll('[data-newsletter-close]').forEach(el => {
+    el.addEventListener('click', () => closeNewsletterModal(true));
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && newsletterModal.classList.contains('is-visible')) {
+      closeNewsletterModal(true);
+    }
+  });
+
+  if (newsletterModalForm) {
+    newsletterModalForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      rememberNewsletterModal();
+      newsletterModalForm.style.display = 'none';
+      newsletterModalSuccess.classList.add('is-visible');
+
+      setTimeout(() => {
+        closeNewsletterModal(false);
+      }, 2200);
+    });
+  }
 </script>
 
 </body>
